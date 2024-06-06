@@ -1,6 +1,6 @@
 ## Repository for PyRATES Workshop & Project
 
-Created as part of the [PyRATES workshop](https://linked.earth/FROGS) June 2024, this repo contains tutorial files from the workshop as well as all files for the associated project.
+Created as part of the [PyRATES workshop](https://linked.earth/FROGS) June 2024.
 
 This project will be a reproducibility study of [Koslow et al. (2011) “Impact of declining intermediate-water oxygen on deepwater fishes in the California Current”](https://www.researchgate.net/publication/263583233_Impact_of_declining_intermediate-water_oxygen_on_deepwater_fishes_in_the_California_Current).
 
