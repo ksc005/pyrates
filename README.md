@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/810518024.svg)](https://zenodo.org/doi/10.5281/zenodo.11508494)
+
 ## Repository for PyRATES Workshop & Project
 
 Created as part of the [PyRATES workshop](https://linked.earth/FROGS) June 2024.
