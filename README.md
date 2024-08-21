@@ -96,7 +96,7 @@ This project is a partial reproducibility study of [Koslow et al. (2011) “Impa
 
 <ins>inputs</ins>: ichthyoplankton abundance time series, oxygen time series
 
-- [x] calculate Spearman's _rho_ and _p_-value between each taxon's abundance time series and the oxygen time series
+- [x] calculate Spearman's &rho; and _p_-value between each taxon's abundance time series and the oxygen time series
 
 <ins>outputs</ins>: dataframe of Spearman's correlations ichthyo-oxygen
 
