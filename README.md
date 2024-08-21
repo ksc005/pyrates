@@ -2,15 +2,16 @@
 
 ## Repository for PyRATES Project
 
-Created as part of the [PyRATES workshop](https://linked.earth/FROGS) June 2024.
+Created as part of the [PyRATES workshop](https://linked.earth/FROGS) in June 2024 and as a professional development project for learning to code in Python.
 
-This project will be a partial reproducibility study of [Koslow et al. (2011) â€œImpact of declining intermediate-water oxygen on deepwater fishes in the California Currentâ€](https://www.researchgate.net/publication/263583233_Impact_of_declining_intermediate-water_oxygen_on_deepwater_fishes_in_the_California_Current).
+This project is a partial reproducibility study of [Koslow et al. (2011) â€œImpact of declining intermediate-water oxygen on deepwater fishes in the California Currentâ€](https://www.researchgate.net/publication/263583233_Impact_of_declining_intermediate-water_oxygen_on_deepwater_fishes_in_the_California_Current). Koslow et al. (2011) analyzed ichthyoplankton (larval fish) abundance data and hydrographic data obtained from the California Cooperative Oceanic Fisheries Investigations, [CalCOFI](calcofi.org), from the years 1951-2008. They found that the first principal component of the ichthyoplankton dataset was highly correlated to mean midwater oxygen levels, with many mesopelagic fishes showing declines in abundance in years when oxygen was low. I will aim to reproduce the first few parts of this study, covering the ichthyoplankton-oxygen analyses and reproducing Table 2 (partial), Figure 2, Figure 3, and Table 3 (partial).
 
+***
 
 ## Workflow outline:
 
 > [!NOTE]
-> Code was not available for this paper. In addition, datasets have been updated and changed since this paper was published.
+> Original code was not available for this paper. In addition, datasets have been updated and changed since this paper was published, so my results will not be the same as in the paper.
 
 <p align="center">
 <b>Part 1. Get and process ichthyoplankton data</b>
@@ -28,6 +29,8 @@ This project will be a partial reproducibility study of [Koslow et al. (2011) â€
 
 <ins>output</ins>: ichthyoplankton abundance time series
 
+***
+
 <p align="center">
 <b>Part 2. Get and process oxygen data</b>
 </p>
@@ -43,6 +46,8 @@ This project will be a partial reproducibility study of [Koslow et al. (2011) â€
 - [x] calculate annual means (based on seasonal means) of oxygen
 
 <ins>output</ins>: oxygen time series
+
+***
 
 <p align="center">
 <b>Part 3. Analysis</b>
@@ -96,7 +101,7 @@ This project will be a partial reproducibility study of [Koslow et al. (2011) â€
 <ins>outputs</ins>: dataframe of Spearman's correlations ichthyo-oxygen
 
 
-<b>Part 3.5. Correlations between PC1 and oxygen time series</b>
+<b>Part 3.6. Correlations between PC1 and oxygen time series</b>
 
 <ins>inputs</ins>: PC1 time series, oxygen time series, detrended PC1 time series, first-differenced PC1 time series, first-differenced oxygen time series
 
@@ -106,6 +111,7 @@ This project will be a partial reproducibility study of [Koslow et al. (2011) â€
 
 <ins>outputs</ins>: dataframe of Pearson's correlations between PC1 and oxygen
 
+***
 
 <p align="center">
 <b>Part 4. Make figures</b>
@@ -135,3 +141,5 @@ This project will be a partial reproducibility study of [Koslow et al. (2011) â€
 <ins>inputs</ins>: dataframe of Pearson's correlations between PC1 and oxygen
 
 - [x] create a table to display the three correlation coefficients and their _p_-values
+
+***
