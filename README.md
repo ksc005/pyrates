@@ -9,39 +9,40 @@ This project will be a partial reproducibility study of [Koslow et al. (2011) �
 
 ## Workflow outline:
 
-Note: Code was not available for this paper. In addition, datasets have been updated and changed since this paper was published.
+> [!NOTE]
+> Code was not available for this paper. In addition, datasets have been updated and changed since this paper was published.
 
 <p align="center">
 <b>Part 1. Get and process ichthyoplankton data</b>
 </p>
 
-• manual step: query [ERDDAP](https://coastwatch.pfeg.noaa.gov/erddap/tabledap/erdCalCOFIlrvcnt.html) for all CalCOFI ichthyoplankton data in the years 1951-2008, download the data as a csv
-• read in data
-• filter dataset for needed variables: line, station, scientific name, larval abundance
-• filter for the CalCOFI sampling stations used in the study
-• remove years with less than three seasons of data (JF = winter, MAM = spring, JJA = summer, SOND = winter)
-• calculate seasonal mean abundance for each taxa
-• calculate annual mean abundance (based on seasonal means) for each taxa
-• remove taxa with data in less than half the years (29)
-• log<sub>10</sub> transform annual means to normalize variance
+- [x] manual step: query [ERDDAP](https://coastwatch.pfeg.noaa.gov/erddap/tabledap/erdCalCOFIlrvcnt.html) for all CalCOFI ichthyoplankton data in the years 1951-2008, download the data as a csv
+- [x] read in data
+- [x] filter dataset for needed variables: line, station, scientific name, larval abundance
+- [x] filter for the CalCOFI sampling stations used in the study
+- [x] remove years with less than three seasons of data (JF = winter, MAM = spring, JJA = summer, SOND = winter)
+- [x] calculate seasonal mean abundance for each taxa
+- [x] calculate annual mean abundance (based on seasonal means) for each taxa
+- [x] remove taxa with data in less than half the years (29)
+- [x] log<sub>10</sub> transform annual means to normalize variance
 
-output: ichthyoplankton abundance time series
+<ins>output</ins>: ichthyoplankton abundance time series
 
 <p align="center">
 <b>Part 2. Get and process oxygen data</b>
 </p>
 
-• manual step: download [CalCOFI bottle data](https://calcofi.org/data/oceanographic-data/bottle-database/) as a csv
-• read in data
-• filter dataset for needed variables: year, line and station, depth, oxygen
-• filter for years 1951-2008
-• filter for the stations used in this study
-• filter for depths 200-400m
-• remove years with less than three seasons of data (JF = winter, MAM = spring, JJA = summer, SOND = winter)
-• calculate seasonal means of oxygen
-• calculate annual means (based on seasonal means) of oxygen
+- [x] manual step: download [CalCOFI bottle data](https://calcofi.org/data/oceanographic-data/bottle-database/) as a csv
+- [x] read in data
+- [x] filter dataset for needed variables: year, line and station, depth, oxygen
+- [x] filter for years 1951-2008
+- [x] filter for the stations used in this study
+- [x] filter for depths 200-400m
+- [x] remove years with less than three seasons of data (JF = winter, MAM = spring, JJA = summer, SOND = winter)
+- [x] calculate seasonal means of oxygen
+- [x] calculate annual means (based on seasonal means) of oxygen
 
-output: oxygen time series
+<ins>output</ins>: oxygen time series
 
 <p align="center">
 <b>Part 3. Analysis</b>
@@ -49,61 +50,61 @@ output: oxygen time series
 
 <b>Part 3.1. Principal Components Analysis (PCA)</b>
 
-input: ichthyoplankton abundance time series
+<ins>input</ins>: ichthyoplankton abundance time series
 
-• standardize the abundance data by each taxon's mean and standard deviation (Z-score)
-• perform PCA
-• extract PC1 scores and loadings
+- [x] standardize the abundance data by each taxon's mean and standard deviation (Z-score)
+- [x] perform PCA
+- [x] extract PC1 scores and loadings
 
-output: PC1 time series, PC1 loadings
+<ins>output</ins>: PC1 time series, PC1 loadings
 
 
 <b>Part 3.2. Detrending</b>
 
-input: PC1 time series
+<ins>input</ins>: PC1 time series
 
-• remove linear trend from PC1 time series
+- [x] remove linear trend from PC1 time series
 
-output: detrended PC1 time series
+<ins>output</ins>: detrended PC1 time series
 
 
 <b>Part 3.3. First-Differencing</b>
 
-inputs: PC1 time series, oxygen time series, ichthyoplankton abundance time series
+<ins>inputs</ins>: PC1 time series, oxygen time series, ichthyoplankton abundance time series
 
-• for each dataset, remove the years of intermittent sampling (1967-1983)
-• take the first-difference of each time series
+- [x] for each dataset, remove the years of intermittent sampling (1967-1983)
+- [x] take the first-difference of each time series
 
-outputs: first-differenced PC1 time series, first-differenced oxygen time series, first-differenced ichthyoplankton abundance time series
+<ins>outputs</ins>: first-differenced PC1 time series, first-differenced oxygen time series, first-differenced ichthyoplankton abundance time series
 
 
 <b>Part 3.4. Correlations between first-differenced ichthyoplankton and first-differenced PC1</b>
 
-inputs: first-differenced PC1 time series, first-differenced ichthyoplankton abundance time series
+<ins>inputs</ins>: first-differenced PC1 time series, first-differenced ichthyoplankton abundance time series
 
-• calculate Pearson's _r_ and _p_-value between each taxon's first-differenced time series and the first-differenced PC1 time series
+- [x] calculate Pearson's _r_ and _p_-value between each taxon's first-differenced time series and the first-differenced PC1 time series
 
-outputs: dataframe of Pearson's correlations ichthyo-PC1
+<ins>outputs</ins>: dataframe of Pearson's correlations ichthyo-PC1
 
 
 <b>Part 3.5. Correlations between ichthyoplankton abundance and oxygen time series</b>
 
-inputs: ichthyoplankton abundance time series, oxygen time series
+<ins>inputs</ins>: ichthyoplankton abundance time series, oxygen time series
 
-• calculate Spearman's _rho_ and _p_-value between each taxon's abundance time series and the oxygen time series
+- [x] calculate Spearman's _rho_ and _p_-value between each taxon's abundance time series and the oxygen time series
 
-outputs: dataframe of Spearman's correlations ichthyo-oxygen
+<ins>outputs</ins>: dataframe of Spearman's correlations ichthyo-oxygen
 
 
 <b>Part 3.5. Correlations between PC1 and oxygen time series</b>
 
-inputs: PC1 time series, oxygen time series, detrended PC1 time series, first-differenced PC1 time series, first-differenced oxygen time series
+<ins>inputs</ins>: PC1 time series, oxygen time series, detrended PC1 time series, first-differenced PC1 time series, first-differenced oxygen time series
 
-• calculate Pearson's _r_ and _p_-value between the original PC1 time series and original oxygen time series
-• calculate Pearson's _r_ and _p_-value between the detrended PC1 time series and original oxygen time series
-• calculate Pearson's _r_ and _p_-value between the first-differenced PC1 time series and the first-differenced oxygen time series
+- [x] calculate Pearson's _r_ and _p_-value between the original PC1 time series and original oxygen time series
+- [x] calculate Pearson's _r_ and _p_-value between the detrended PC1 time series and original oxygen time series
+- [x] calculate Pearson's _r_ and _p_-value between the first-differenced PC1 time series and the first-differenced oxygen time series
 
-outputs: dataframe of Pearson's correlations between PC1 and oxygen
+<ins>outputs</ins>: dataframe of Pearson's correlations between PC1 and oxygen
 
 
 <p align="center">
@@ -112,25 +113,25 @@ outputs: dataframe of Pearson's correlations between PC1 and oxygen
 
 <b>Table 2 (partial)</b>
 
-inputs: PC1 loadings, dataframe of Pearson's correlations ichthyo-PC1, dataframe of Spearman's correlations ichthyo-oxygen
+<ins>inputs</ins>: PC1 loadings, dataframe of Pearson's correlations ichthyo-PC1, dataframe of Spearman's correlations ichthyo-oxygen
 
-• create a table with 4 columns: scientific name, loading on PC1, first-differenced correlation with PC1, and Spearman's correlation with oxygen
+- [x] create a table with 4 columns: scientific name, loading on PC1, first-differenced correlation with PC1, and Spearman's correlation with oxygen
 
 <b>Figure 2</b>
 
-inputs: ichthyoplankton abundance time series
+<ins>inputs</ins>: ichthyoplankton abundance time series
 
-• filter the abundance time series for 4 specific taxa (_Cyclothone_ spp., _Diogenichthys atlanticus_, _Bathylagoides wesethi_, _Vinciguerria lucetia_)
-• plot the time series of each taxa abundance against year on shared axes
+- [x] filter the abundance time series for 4 specific taxa (_Cyclothone_ spp., _Diogenichthys atlanticus_, _Bathylagoides wesethi_, _Vinciguerria lucetia_)
+- [x] plot the time series of each taxa abundance against year on shared axes
 
 <b>Figure 3</b>
 
-inputs: PC1 time series, oxygen time series
+<ins>inputs</ins>: PC1 time series, oxygen time series
 
-• plot the two time series on a shared x-axis and separate y-axes
+- [x] plot the two time series on a shared x-axis and separate y-axes
 
 <b>Table 3 (partial)</b>
 
-inputs: dataframe of Pearson's correlations between PC1 and oxygen
+<ins>inputs</ins>: dataframe of Pearson's correlations between PC1 and oxygen
 
-• create a table to display the three correlation coefficients and their _p_-values
+- [x] create a table to display the three correlation coefficients and their _p_-values
