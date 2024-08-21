@@ -50,3 +50,6 @@ rsconnect/
 
 # ignore my data folder
 data/
+
+# ignore DS_store
+.DS_Store
